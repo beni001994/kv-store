@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kv-store"
+version = "0.1.0"
+description = "A small persistent key-value store with a write-ahead log, compaction, crash recovery and TTLs."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+kv-store = "kv_store.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+kv_store = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
